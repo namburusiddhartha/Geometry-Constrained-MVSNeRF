@@ -1,6 +1,6 @@
 # Epipolar Constrained MVSNeRF
 ## Pipeline
-https://github.com/namburusiddhartha/Epipolar-based-MVSNeRF/blob/main/configs/pipeline.png
+![alt text] (https://github.com/namburusiddhartha/Epipolar-based-MVSNeRF/blob/main/configs/pipeline.png)
 
 
 ## Installation
@@ -63,57 +63,6 @@ please check your configuration if your rendering result looks absnormal.
 Rendering from the trained model should have result like this:
 
 ![no-finetuned](https://user-images.githubusercontent.com/16453770/124207949-210b8300-db19-11eb-9ab9-610eff35395e.gif)
-
-## Finetuning
-### Blender
-<details>
-  <summary>Steps</summary>
-
-#### Data download
-
-Download `nerf_synthetic.zip` from [here](https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1)
-
-```
-CUDA_VISIBLE_DEVICES=0  python train_mvs_nerf_finetuning_pl.py  \
-    --dataset_name blender --datadir /path/to/nerf_synthetic/lego \
-    --expname lego-ft  --with_rgb_loss  --batch_size 1024  \
-    --num_epochs 1 --imgScale_test 1.0 --white_bkgd  --pad 0 \
-    --ckpt ./ckpts/mvsnerf-v0.tar --N_vis 1
-```
-
-</details>
-
-### LLFF
-<details>
-  <summary>Steps</summary>
-
-
-#### Data download
-
-Download `nerf_llff_data.zip` from [here](https://drive.google.com/drive/folders/128yBriW1IG_3NJ5Rp7APSTZsJqdJdfc1)
-
-```
-CUDA_VISIBLE_DEVICES=0  python train_mvs_nerf_finetuning_pl.py  \
-    --dataset_name llff --datadir /path/to/nerf_llff_data/{scene_name} \
-    --expname horns-ft  --with_rgb_loss  --batch_size 1024  \
-    --num_epochs 1 --imgScale_test 1.0  --pad 24 \
-    --ckpt ./ckpts/mvsnerf-v0.tar --N_vis 1
-```
-
-</details>
-
-### DTU
-<details>
-  <summary>Steps</summary>
-
-```
-CUDA_VISIBLE_DEVICES=0  python train_mvs_nerf_finetuning_pl.py  \
-    --dataset_name dtu_ft --datadir /path/to/DTU/mvs_training/dtu/scan1 \
-    --expname scan1-ft  --with_rgb_loss  --batch_size 1024  \
-    --num_epochs 1 --imgScale_test 1.0   --pad 24 \
-    --ckpt ./ckpts/mvsnerf-v0.tar --N_vis 1
-```
-
 
 
 Big thanks to [**MVSNeRF**](https://github.com/apchenstu/mvsnerf), our code is partially
