@@ -1,6 +1,7 @@
 # Epipolar Constrained MVSNeRF
 ## Pipeline
-![alt text] (https://github.com/namburusiddhartha/Epipolar-based-MVSNeRF/blob/main/configs/pipeline.png)
+![alt text]([https://github.com/[username]/[reponame]/blob/[branch]/image.jpg](https://github.com/namburusiddhartha/Epipolar-based MVSNeRF/blob/main/configs/pipeline.png)?raw=true)
+
 
 
 ## Installation
