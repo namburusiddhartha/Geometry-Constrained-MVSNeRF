@@ -1,9 +1,7 @@
-# MVSNeRF
-## [Project page](https://apchenstu.github.io/mvsnerf/) |  [Paper](https://arxiv.org/abs/2103.15595)
-This repository contains a pytorch lightning implementation for the ICCV 2021 paper: [MVSNeRF: Fast Generalizable Radiance Field Reconstruction from Multi-View Stereo](https://arxiv.org/abs/2103.15595). Our work present a novel neural rendering approach that can efficiently reconstruct
-geometric and neural radiance fields for view synthesis, Moreover, if dense images are captured, our estimated radiance field representation can be easily fine-tuned; this leads to fast per-scene reconstruction.<br><br>
+# Epipolar Constrained MVSNeRF
+## Pipeline
+https://github.com/namburusiddhartha/Epipolar-based-MVSNeRF/blob/main/configs/pipeline.png
 
-![Pipeline](configs/pipeline.png)
 
 ## Installation
 
@@ -17,14 +15,6 @@ pip install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1+cu1
 pip install pytorch-lightning==1.3.5 imageio pillow scikit-image opencv-python configargparse lpips kornia warmup_scheduler matplotlib test-tube imageio-ffmpeg
 ```
 
-
-## Training
-Please see each subsection for training on different datasets. Available training datasets:
-
-* [DTU](#dtu)
-* [Blender](#blender) (Realistic Synthetic)
-* [LLFF](#llff) (Real Forward-Facing)
-* [Your own data](#your-own-data) (images/intrinsic/extrinsic/nearfar boundles)
 
 ### DTU dataset
 
@@ -124,31 +114,9 @@ CUDA_VISIBLE_DEVICES=0  python train_mvs_nerf_finetuning_pl.py  \
     --ckpt ./ckpts/mvsnerf-v0.tar --N_vis 1
 ```
 
-</details>
-
-## Rendering
-After training or finetuning, you can render free-viewpoint videos
-with the `renderer-video.ipynb`. if you want to use your own data,
-please using the right hand coordinate system (intrinsic, nearfar and extrinsic either with
-camera to world or world to camera in opencv format) and modify the rendering scipts.
-
-After 10k iterations (~ 15min), you should have videos like this:
-
-![finetuned](https://user-images.githubusercontent.com/16453770/124207013-15b75800-db17-11eb-8d96-e8dbe4181c98.gif)
 
 
-## Citation
-If you find our code or paper helps, please consider citing:
-```
-@article{chen2021mvsnerf,
-  title={MVSNeRF: Fast Generalizable Radiance Field Reconstruction from Multi-View Stereo},
-  author={Chen, Anpei and Xu, Zexiang and Zhao, Fuqiang and Zhang, Xiaoshuai and Xiang, Fanbo and Yu, Jingyi and Su, Hao},
-  journal={arXiv preprint arXiv:2103.15595},
-  year={2021}
-}
-```
-
-Big thanks to [**CasMVSNet_pl**](https://github.com/kwea123/CasMVSNet_pl), our code is partially
+Big thanks to [**MVSNeRF**](https://github.com/apchenstu/mvsnerf), our code is partially
 borrowing from them.
 
 ## Relevant Works
